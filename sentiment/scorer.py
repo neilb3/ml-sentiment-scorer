@@ -1,5 +1,7 @@
 from sentiment.lexicon import POSITIVE_WORDS, NEGATIVE_WORDS
 
+MAX_TEXT_LENGTH = 5000
+
 
 class SentimentScorer:
     """
@@ -9,6 +11,17 @@ class SentimentScorer:
     """
 
     def score(self, text: str) -> dict:
+        if text is None or not isinstance(text, str):
+            raise TypeError("text must be a string, got: {}".format(type(text).__name__))
+
+        if not text.strip():
+            raise ValueError("text must not be empty or whitespace-only")
+
+        if len(text) > MAX_TEXT_LENGTH:
+            raise ValueError(
+                "text must not exceed {} characters, got: {}".format(MAX_TEXT_LENGTH, len(text))
+            )
+
         words = text.lower().split()
         positive_count = sum(1 for w in words if w in POSITIVE_WORDS)
         negative_count = sum(1 for w in words if w in NEGATIVE_WORDS)
