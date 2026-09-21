@@ -7,6 +7,7 @@ A lightweight, dependency-free lexicon-based sentiment scorer.
 ```python
 from sentiment.scorer import SentimentScorer
 
+
 scorer = SentimentScorer()
 result = scorer.score("This is a great product")
 ```
