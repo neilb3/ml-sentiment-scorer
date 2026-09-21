@@ -10,6 +10,11 @@ class SentimentScorer:
     """
 
     def score(self, text: str) -> dict:
+        if not isinstance(text, str):
+            raise TypeError("text must be a string")
+        if not text.strip():
+            raise ValueError("text must not be empty")
+
         words = text.lower().split()
         positive_count = sum(1 for w in words if w in POSITIVE_WORDS)
         negative_count = sum(1 for w in words if w in NEGATIVE_WORDS)
