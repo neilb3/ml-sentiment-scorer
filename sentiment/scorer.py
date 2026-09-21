@@ -1,6 +1,7 @@
 from sentiment.lexicon import POSITIVE_WORDS, NEGATIVE_WORDS
 
 
+
 class SentimentScorer:
     """
     Lightweight lexicon-based sentiment scorer. No ML model, no training
