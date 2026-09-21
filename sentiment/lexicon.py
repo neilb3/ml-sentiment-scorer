@@ -4,6 +4,7 @@ POSITIVE_WORDS = {
     "delightful", "pleased", "satisfied", "outstanding", "superb",
 }
 
+
 NEGATIVE_WORDS = {
     "bad", "terrible", "awful", "horrible", "worst", "hate",
     "poor", "disappointing", "sad", "angry", "frustrated", "broken",
